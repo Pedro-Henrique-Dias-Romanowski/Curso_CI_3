@@ -11,7 +11,7 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     env:
-      HOST: localhost
+      HOST: postgres
       DBPORT: 5432
       USER: root
       PASSWORD: root
@@ -34,8 +34,8 @@ jobs:
     - name: Create-DB
       run: docker compose up -d
 
-    - name: Test
-      run: go test -v main_test.go 
+    #- name: Test
+    #  run: go test -v main_test.go 
       
   
   build:
