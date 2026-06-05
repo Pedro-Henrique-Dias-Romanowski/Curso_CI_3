@@ -1,7 +1,6 @@
-version: '3'
 services:
   postgres:
-    image: "postgres"
+    image: postgres:latest
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
@@ -20,4 +19,3 @@ services:
       - "54321:80"
     depends_on:
       - postgres
-
