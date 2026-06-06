@@ -14,7 +14,7 @@ jobs:
       with:
     # Artifact name
         name: programa
-    # comentario para disparar a esteira 12121dkk
+    # comentario para disparar a esteira 12121dkkffff
     
     - name: Deploy to Staging server
       uses: easingthemes/ssh-deploy@main
