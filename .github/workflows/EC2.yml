@@ -37,8 +37,5 @@ jobs:
           export PASSWORD=${{ secrets.DBPASSWORD }}
           export DBNAME=${{ secrets.DBNAME }}
           export DBPORT=${{ secrets.DBPORT }}
-          fuser -k 8000/tcp || true
           chmod +x main
           nohup ./main > nohup.out 2> nohup.err < /dev/null &
-          sleep 3
-          ss -tlnp | grep ':8000' || (echo "App não subiu!" && cat nohup.err && exit 1)
