@@ -7,4 +7,5 @@ ENV DB_USER=root
 ENV PASSWORD=root
 ENV DBNAME=root
 COPY ./main main
+RUN chmod +x main
 CMD [ "./main" ]
