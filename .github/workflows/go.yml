@@ -65,7 +65,7 @@ jobs:
  #   uses: ./.github/workflows/ECs.yml
  #  secrets: inherit
 
-  #Deploy_ECS:
-  #   needs: docker
-  #   uses: ./.github/workflows/ECS.yml
-  #   secrets: inherit
+  Deploy_ECS:
+     needs: docker
+     uses: ./.github/workflows/ECS.yml
+     secrets: inherit
