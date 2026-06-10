@@ -15,6 +15,27 @@ jobs:
       - name: AWS describe task definition
         run: aws ecs describe-task-definition --task-definition Tarefa_API-GO --query taskDefinition > task-definition.json
 
+      - name: Fill in the new image ID in the Amazon ECS task definition
+        id: task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: task-definition.json
+          container-name: Go
+          image: pxdrophd/go_ci:Aula_5
+          environment_variables: |
+             HOST=${{ secrets.DBHOST }}
+             DB_USER=${{ secrets.DBUSER }}
+             PASSWORD=${{ secrets.DBPASSWORD }}
+             DBNAME=${{ secrets.DBNAME }}
+             DBPORT=${{ secrets.DBPORT }}
+             PORT=8000
 
 
-    # TODO
+      - name: Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+           task-definition: ${{ steps.task-def.outputs.task-definition }}
+           service: Servico_API-Go
+           cluster: clusterapigo
+           wait-for-service-stability: true       
+          
