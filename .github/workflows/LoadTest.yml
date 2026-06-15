@@ -32,7 +32,6 @@ jobs:
       - run: echo "$(terraform -chdir=Infra_CI/env/Homolog output -raw IP_alb)"
         id: URL
 
-
       - name: Setup Python
         uses: actions/setup-python@v2.3.3
         with:
