@@ -18,7 +18,7 @@ jobs:
         aws-region: us-west-2
         
     - run: git clone https://github.com/Pedro-Henrique-Dias-Romanowski/Infra_CI_Kubernetes_ALURA.git
-
+    
     - name: HashiCorp - Setup terraform
       uses: hashicorp/setup-terraform@v2.0.3
 
