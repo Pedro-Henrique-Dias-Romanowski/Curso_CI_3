@@ -26,7 +26,6 @@ jobs:
 
     - run: terraform -chdir=Infra_CI_Kubernetes_ALURA/env/Homolog init
 
-
     - run: terraform -chdir=Infra_CI_Kubernetes_ALURA/env/Homolog apply -auto-approve
 
     - name: Kubectl tool installer
