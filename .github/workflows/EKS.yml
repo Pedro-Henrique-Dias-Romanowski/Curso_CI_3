@@ -17,8 +17,6 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
 
-
-
     - run: git clone https://github.com/Pedro-Henrique-Dias-Romanowski/Infra_CI_Kubernetes_ALURA.git
 
     - name: HashiCorp - Setup terraform
