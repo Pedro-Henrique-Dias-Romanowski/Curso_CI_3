@@ -21,7 +21,6 @@ jobs:
 
     - name: HashiCorp - Setup terraform
       uses: hashicorp/setup-terraform@v2.0.3
-      
 
     - run: terraform -chdir=Infra_CI_Kubernetes_ALURA/env/Homolog init
 
