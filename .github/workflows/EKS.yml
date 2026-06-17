@@ -19,11 +19,20 @@ jobs:
 
 
 
-    - run: git clone https://github.com/Pedro-Henrique-Dias-Romanowski/Infra_CI_Curso_AWS_Alura.git
+    - run: git clone https://github.com/Pedro-Henrique-Dias-Romanowski/Infra_CI_Kubernetes_ALURA.git
 
     - name: HashiCorp - Setup terraform
       uses: hashicorp/setup-terraform@v2.0.3
 
-    - run: terraform -chdir=Infra_CI_Curso_AWS_Alura/env/Homolog init
+    - run: terraform -chdir=Infra_CI_Kubernetes_ALURA/env/Homolog init
 
-    - run: terraform -chdir=Infra_CI_Curso_AWS_Alura/env/Homolog apply -auto-approve
+    - run: terraform -chdir=Infra_CI_Kubernetes_ALURA/env/Homolog apply -auto-approve
+
+    - name: Kubectl tool installer
+      uses: Azure/setup-kubectl@v3
+
+    - run: aws sts get-caller-identity   
+
+    - run: aws eks upadate-kubeconfig --region us-west-2  --name homolog2
+
+    - run: kubectl get svc
